@@ -1,0 +1,21 @@
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 18px;
+}
+
+.status {
+    h3 {
+        font-size: 2rem;
+        font-weight: 800;
+    }
+
+    p {
+        font-size: 1.4rem;
+    }
+}
+
+.icon {
+    height: 3.2rem;
+    width: 3.2rem;
+}
