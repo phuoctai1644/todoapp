@@ -1,6 +1,6 @@
 {
-  "homepage": "https://phuoctai1644.github.io/todo-app",
-  "name": "todo-app",
+  "homepage": "https://phuoctai1644.github.io/todoapp/",
+  "name": "todoapp",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -49,7 +49,7 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^3.2.3",
+    "gh-pages": "^4.0.0",
     "sass": "^1.52.1"
   }
 }

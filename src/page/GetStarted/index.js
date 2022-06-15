@@ -13,7 +13,6 @@ function GetStarted() {
         else {
             navigate('/home')
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (
