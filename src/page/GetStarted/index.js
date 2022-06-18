@@ -11,7 +11,7 @@ function GetStarted() {
             localStorage.setItem('first-time', false)
         }
         else {
-            navigate('/home')
+            navigate('/todoapp/home')
         }
     }, [])
 
@@ -21,7 +21,7 @@ function GetStarted() {
                 <h3>Get Orangized Your Life</h3>
                 <p>Todo-App is a simple and effective to-do-app list and task manager app which helps you manage time </p>
             </div>
-            <Link className={styles.getBtn} to='/home'>Get Started</Link>
+            <Link className={styles.getBtn} to='/todoapp/home'>Get Started</Link>
         </div>
     )
 }

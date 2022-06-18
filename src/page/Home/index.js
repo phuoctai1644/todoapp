@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Header from '../../components/Header'
 import TodoGroup from '../../components/TodoGroup'
 import styles from './Home.module.scss'
-import {MenuIcon} from '../../components/Icons'
+import { MenuIcon } from '../../components/Icons'
 
 function Home() {
     return (
@@ -16,7 +16,7 @@ function Home() {
                 <TodoGroup />
             </div>
             <div className={styles.addBtn}>
-                <FontAwesomeIcon icon={faPlus}/>
+                <FontAwesomeIcon icon={faPlus} />
             </div>
         </div>
     )

@@ -87,7 +87,7 @@ function DetailGroup() {
     return (
         <div className={styles.wrapper}>
             <div className={styles.navigate}>
-                <Link to='/home' className={styles.navigateLink}>
+                <Link to='/todoapp/home' className={styles.navigateLink}>
                     <FontAwesomeIcon className={styles.navigateIcon} icon={faArrowLeft} />
                 </Link>
                 <FontAwesomeIcon className={styles.navigateIcon} icon={faEllipsisVertical} />

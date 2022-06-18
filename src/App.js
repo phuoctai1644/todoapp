@@ -11,6 +11,9 @@ function App() {
           <Route path='/todoapp' element={<GetStarted />} />
           <Route path='/home' element={<Home />} />
           <Route path='/detailGroup' element={<DetailGroup />} />
+          {/* Use for github page */}
+          <Route path='/todoapp/home' element={<Home />} />
+          <Route path='/todoapp/detailGroup' element={<DetailGroup />} />
         </Routes>
       </div>
     </BrowserRouter>

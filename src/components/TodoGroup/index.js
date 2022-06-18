@@ -26,7 +26,7 @@ function TodoGroup() {
 
     const handleChangeGroup = (groupItem) => {
         dispatch(changeGroup(groupItem.name))
-        navigate('/detailGroup')
+        navigate('/todoapp/detailGroup')
     }
 
     return (
