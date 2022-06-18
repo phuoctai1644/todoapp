@@ -1,9 +1,17 @@
-import { faArrowLeft, faEllipsisVertical, faPlus, faPen, faArrowUp } from '@fortawesome/free-solid-svg-icons'
+import { 
+    faArrowLeft, 
+    faEllipsisVertical, 
+    faPlus, 
+    faPen, 
+    faArrowUp, 
+    faTrashCan, 
+    faCheck 
+} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { addTodo, toggleTodo } from '../../redux/actions'
+import { addTodo, toggleTodo, updateTodo } from '../../redux/actions'
 import { SunIcon } from '../../components/Icons'
 import styles from './DetailGroup.module.scss'
 
@@ -13,28 +21,66 @@ function DetailGroup() {
     const curGroup = useSelector(state => state.currentGroup)
     const addTodoRef = useRef()
     const addBtnRef = useRef()
+    const editTodoRef = useRef([])
 
-    const [todo, setTodo] = useState('')
+    // const saveIconRef = useRef([])
+    const editIconRef = useRef()
+
+    const [_todo, setTodo] = useState('')
 
     const handleShowAddTodo = () => {
+        setTodo('')
+
         addBtnRef.current.style.display = 'none'
         addTodoRef.current.style.display = 'flex'
+
+        // If edit todo is being activing => display none it
+        editTodoRef.current.map(item => item.style.display = 'none')
 
         // Autofocus on Typing todo input
         addTodoRef.current.children[1].focus()
     }
 
     const handleEnterAddTodo = (e) => {
-        if (e.keyCode === 13 && todo !== '') {
-            dispatch(addTodo(todo))
+        if (e.keyCode === 13 && _todo !== '') {
+            dispatch(addTodo(_todo))
             setTodo('')
         }
     }
 
     const handleClickAddTodo = () => {
-        if (todo !== '') {
-            dispatch(addTodo(todo))
+        if (_todo !== '') {
+            dispatch(addTodo(_todo))
             setTodo('')
+        }
+    }
+
+    const handleEditTodo = (content, index) => {
+        const editTodoDOM = editTodoRef.current
+
+        // Reset all edit input
+        editTodoDOM.map(item => item.style.display = 'none')  
+    
+        // If at this time, input add is being shown => display none it
+        addBtnRef.current.style.display = 'block'
+        addTodoRef.current.style.display = 'none'
+
+        // Styling edit input
+        setTodo(content)
+        editTodoDOM[index].style.display = 'block'
+        editTodoDOM[index].focus()
+    }
+
+    const handleEnterUpdateTodo = (e, index) => {
+        if (e.keyCode === 13) {
+            const obj = {
+                content: e.target.value,
+                index
+            }
+
+            dispatch(updateTodo(obj))
+            setTodo('')
+            editTodoRef.current[index].style.display = 'none'
         }
     }
 
@@ -64,10 +110,32 @@ function DetailGroup() {
                                 defaultChecked={todo.isDone}
                                 onChange={() => dispatch(toggleTodo(index))}
                             />
-                            <label>{todo.content}</label>
+                            <div className={styles.content}>
+                                <label>{todo.content}</label>
+                                <input 
+                                    ref={el => editTodoRef.current[index] = el} 
+                                    className={styles.editInput}
+                                    type="text" 
+                                    value={_todo} 
+                                    onChange={e => setTodo(e.target.value)}
+                                    onKeyUp={(e) => handleEnterUpdateTodo(e, index)}
+                                />
+                            </div>
                         </div>
-                        <div className={styles.edit}>
-                            <FontAwesomeIcon icon={faPen} />
+                        <div className={styles.option}>
+                            <label ref={editIconRef} className={styles.edit} onClick={() => handleEditTodo(todo.content, index)}>
+                                <FontAwesomeIcon icon={faPen} />
+                            </label>
+
+                            <label htmlFor="delete" className={styles.delete}>
+                                <FontAwesomeIcon icon={faTrashCan} />
+                            </label>
+                            <input type="checkbox" id="delete" hidden />
+
+                            {/* Save edit todo => !! Available in next update */}
+                            {/* <label ref={el => saveIconRef.current[index] = el} className={styles.save}>
+                                <FontAwesomeIcon icon={faCheck} hidden />
+                            </label> */}
                         </div>
                     </div>
                 ))}
@@ -83,7 +151,7 @@ function DetailGroup() {
                 <input 
                     type="text" 
                     placeholder="Add a task"
-                    value={todo}
+                    value={_todo}
                     onChange={e => setTodo(e.target.value)}
                     onKeyUp={handleEnterAddTodo}
                 />

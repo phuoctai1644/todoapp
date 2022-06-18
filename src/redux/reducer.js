@@ -1,4 +1,4 @@
-import { ADD_TODO, CHANGE_GROUP, SET_CUR_GROUP, TOGGLE_TODO } from "./type"
+import { ADD_TODO, CHANGE_GROUP, SET_CUR_GROUP, TOGGLE_TODO, UPDATE_TODO } from "./type"
 
 const initState = {
     todos: JSON.parse(localStorage.getItem('Today')) ?? [],
@@ -7,7 +7,7 @@ const initState = {
 }
 
 const reducer = (state = initState, action) => {
-    let newTodos
+    let newTodos, todoClicked
     switch(action.type) {
         case SET_CUR_GROUP:
             return {
@@ -28,7 +28,7 @@ const reducer = (state = initState, action) => {
             }
 
         case TOGGLE_TODO:
-            const todoClicked = state.todos[action.payload]
+            todoClicked = state.todos[action.payload]
             
             newTodos = state.todos.map((todo, index) => {
                 if (index === action.payload) return {
@@ -51,6 +51,25 @@ const reducer = (state = initState, action) => {
                 todos: JSON.parse(localStorage.getItem(action.payload)) ?? [],
                 currentGroup: action.payload
             }
+
+        case UPDATE_TODO:
+            todoClicked = state.todos[action.payload.index]
+            
+            newTodos = state.todos.map((todo, index) => {
+                if (index === action.payload.index) return {
+                    ...todoClicked,
+                    content: action.payload.content
+                }
+                return todo
+            })
+
+            localStorage.setItem(state.currentGroup, JSON.stringify(newTodos))
+
+            return {
+                ...state, 
+                todos: newTodos
+            }
+
         default: 
             return state
     }

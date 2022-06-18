@@ -8,7 +8,7 @@ function App() {
     <BrowserRouter>
       <div className='App'>
         <Routes>
-          <Route path='/' element={<GetStarted />} />
+          <Route path='/todoapp' element={<GetStarted />} />
           <Route path='/home' element={<Home />} />
           <Route path='/detailGroup' element={<DetailGroup />} />
         </Routes>

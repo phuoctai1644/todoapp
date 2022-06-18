@@ -63,19 +63,21 @@
         border-color: #ddd;
     }
 
-    &:hover .edit {
+    &:hover .edit,
+    &:hover .delete {
         display: block;
-    }
+    } 
+
+    // & .editCheckbox:checked ~.editInput {
+    //     display: block;
+    // }
 }
 
 .main {
     display: flex;
-    align-items: center;
-    position: relative;
+    align-items: flex-start;
 
     input[type="checkbox"] {
-        // width: 20px;
-        // height: 20px;
         -webkit-appearance: none;
         appearance: none;
         background-color: #fff;
@@ -104,22 +106,47 @@
         transform: scale(1);
     }
 
-    label {
-        font-size: 1.8rem;
-    }
-
-    input:checked ~ label {
+    input:checked ~ .content label {
         text-decoration: line-through;
     }
 }
 
-.edit {
-    display: none;
+.content {
+    flex: 1;
+    display: block;
+    position: relative;
+
+    label {
+        font-size: 1.8rem;
+    }
+    
+    input[type="text"] {
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        font-family: 'Nunito', sans-serif;
+        transform: translateY(-50%);
+        padding: 8px 6px;
+        width: 100%;
+        outline: none;
+        border: none;
+        border-radius: 6px;
+    }
+}
+
+.option {
+    display: flex;
     position: absolute;
-    right: 4px;
+    right: 0;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 1.4rem;
+    font-size: 1.6rem;
+
+    label {
+        margin-right: 8px;
+        display: none;
+    }
 }
 
 // Add button
