@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { addTodo, toggleTodo, updateTodo } from '../../redux/actions'
+import { addTodo, deleteTodo, toggleTodo, updateTodo } from '../../redux/actions'
 import { SunIcon } from '../../components/Icons'
 import styles from './DetailGroup.module.scss'
 
@@ -83,7 +83,7 @@ function DetailGroup() {
             editTodoRef.current[index].style.display = 'none'
         }
     }
-
+    
     return (
         <div className={styles.wrapper}>
             <div className={styles.navigate}>
@@ -127,10 +127,9 @@ function DetailGroup() {
                                 <FontAwesomeIcon icon={faPen} />
                             </label>
 
-                            <label htmlFor="delete" className={styles.delete}>
+                            <label className={styles.delete} onClick={() => dispatch(deleteTodo(index))}>
                                 <FontAwesomeIcon icon={faTrashCan} />
                             </label>
-                            <input type="checkbox" id="delete" hidden />
 
                             {/* Save edit todo => !! Available in next update */}
                             {/* <label ref={el => saveIconRef.current[index] = el} className={styles.save}>

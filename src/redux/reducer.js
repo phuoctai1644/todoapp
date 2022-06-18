@@ -1,4 +1,4 @@
-import { ADD_TODO, CHANGE_GROUP, SET_CUR_GROUP, TOGGLE_TODO, UPDATE_TODO } from "./type"
+import { ADD_TODO, CHANGE_GROUP, DELETE_TODO, SET_CUR_GROUP, TOGGLE_TODO, UPDATE_TODO } from "./type"
 
 const initState = {
     todos: JSON.parse(localStorage.getItem('Today')) ?? [],
@@ -70,6 +70,17 @@ const reducer = (state = initState, action) => {
                 todos: newTodos
             }
 
+        case DELETE_TODO: 
+            newTodos = [...state.todos]
+            newTodos.splice(action.payload, 1)
+
+            localStorage.setItem(state.currentGroup, JSON.stringify(newTodos))
+
+            return {
+                ...state,
+                todos: newTodos
+            }
+        
         default: 
             return state
     }
