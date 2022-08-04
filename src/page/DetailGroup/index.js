@@ -5,7 +5,6 @@ import {
     faPen, 
     faArrowUp, 
     faTrashCan, 
-    faCheck 
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useRef, useState } from 'react'
@@ -16,6 +15,7 @@ import { SunIcon } from '../../components/Icons'
 import styles from './DetailGroup.module.scss'
 
 function DetailGroup() {
+    console.log('re-render')
     const dispatch = useDispatch()
     const TODOS = useSelector(state => state.todos)
     const curGroup = useSelector(state => state.currentGroup)
@@ -59,7 +59,7 @@ function DetailGroup() {
         const editTodoDOM = editTodoRef.current
 
         // Reset all edit input
-        editTodoDOM.map(item => item.style.display = 'none')  
+        editTodoDOM.map(item => item.style.display = 'none')
     
         // If at this time, input add is being shown => display none it
         addBtnRef.current.style.display = 'block'
@@ -83,7 +83,7 @@ function DetailGroup() {
             editTodoRef.current[index].style.display = 'none'
         }
     }
-    
+
     return (
         <div className={styles.wrapper}>
             <div className={styles.navigate}>
@@ -107,7 +107,7 @@ function DetailGroup() {
                         <div className={styles.main}>
                             <input 
                                 type="checkbox" 
-                                defaultChecked={todo.isDone}
+                                checked={todo.isDone}
                                 onChange={() => dispatch(toggleTodo(index))}
                             />
                             <div className={styles.content}>

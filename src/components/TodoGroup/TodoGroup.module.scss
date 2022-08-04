@@ -1,16 +1,21 @@
 .wrapper {
-    display: flex;
-    justify-content: space-between;
     background-color: var(--white-color);
     border-radius: 10px;
     padding: 16px;
     margin-bottom: 18px;
     box-shadow: 2px 5px 3px rgba(0, 0, 0, 0.3);
     cursor: pointer;
+    position: relative;
 
     &:hover {
         background-color: rgb(247, 245, 245);
     }
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+
 }
 
 .icon {
@@ -38,8 +43,12 @@
     }
 }
 
-.moreBtn {
+.deleteIcon {
+    position: absolute;
     font-size: 1.8rem;
+    top: 16px;
+    right: 16px;
+    display: block;
 }
 
 .groupItemLink {

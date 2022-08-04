@@ -2,7 +2,7 @@
     background-image: url('../../assets//images/todo-background.png');
     background-size: cover;
     background-position-y: -38px;
-    height: 95vh;
+    height: 100vh;
     padding: 24px;
     position: relative;
 }
@@ -67,10 +67,6 @@
     &:hover .delete {
         display: block;
     } 
-
-    // & .editCheckbox:checked ~.editInput {
-    //     display: block;
-    // }
 }
 
 .main {

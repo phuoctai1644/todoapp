@@ -1,4 +1,13 @@
-import { ADD_TODO, CHANGE_GROUP, DELETE_TODO, SET_CUR_GROUP, TOGGLE_TODO, UPDATE_TODO } from "./type"
+import { 
+    ADD_GROUP, 
+    ADD_TODO, 
+    CHANGE_GROUP, 
+    DELETE_TODO,
+    DELETE_GROUP, 
+    SET_CUR_GROUP, 
+    TOGGLE_TODO, 
+    UPDATE_TODO 
+} from "./type"
 
 export const addTodo = (payload) => {
     return {
@@ -39,5 +48,19 @@ export const deleteTodo = (payload) => {
     return {
         type: DELETE_TODO,
         payload,
+    }
+}
+
+export const addGroup = (payload) => {
+    return {
+        type: ADD_GROUP,
+        payload,
+    }
+}
+
+export const deleteGroup = (payload) => {
+    return {
+        type: DELETE_GROUP,
+        payload
     }
 }

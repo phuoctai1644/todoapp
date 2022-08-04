@@ -24,7 +24,6 @@ body {
     font-family: 'Nunito', sans-serif;
     list-style: 1.5rem;
     text-rendering: optimizeSpeed;
-	// max-width: 360px;
 	margin: 0 auto;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -34,4 +33,17 @@ button, a[href] {
     border: none;
     outline: none;
     text-decoration: none;
+}
+
+/* PC */
+@media screen and (min-width: 64em) {
+    body {
+        max-width: 360px;
+        height: 100%;
+    }
+}
+
+// Tablet (Not Working -> In the future)
+@media screen and (min-width: 46.25em) and (max-width: 63.9375em) {
+    
 }

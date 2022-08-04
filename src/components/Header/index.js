@@ -10,7 +10,7 @@ function Header() {
             <div className={styles.status}>
                 <h3>Hello Alison</h3>
                 <p>Today you have {todayTodos.length} {todayTodos.length > 1 ? 'tasks' : 'task'}</p>
-            </div>
+            </div>  
             <FontAwesomeIcon className={styles.icon} icon={faUser} />
         </div>
     )

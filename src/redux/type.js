@@ -4,3 +4,6 @@ export const SET_CUR_GROUP = 'set_cur_group'
 export const CHANGE_GROUP = 'change_group'
 export const UPDATE_TODO = 'update_todo'
 export const DELETE_TODO = 'delete_todo'
+
+export const ADD_GROUP = 'add_group'
+export const DELETE_GROUP = 'delete_group'
