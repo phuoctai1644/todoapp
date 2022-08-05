@@ -1,13 +1,12 @@
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useState, useRef } from 'react'
+import { useDispatch } from 'react-redux'
 import Header from '../../components/Header'
 import TodoGroup from '../../components/TodoGroup'
 import styles from './Home.module.scss'
 import { MenuIcon } from '../../components/Icons'
-import { useState } from 'react'
-import {useDispatch} from 'react-redux'
 import { addGroup } from '../../redux/actions'
-import { useRef } from 'react'
 
 function Home() {
     const dispatch = useDispatch()

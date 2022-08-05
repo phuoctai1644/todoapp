@@ -10,8 +10,12 @@
     text-align: center;
 }
 
+.content {
+    width: 100%;
+}
+
 .intro {
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 
     h3 {
         font-size: 2.2rem;
@@ -24,8 +28,36 @@
     }
 }
 
+.nameInput {
+    outline: none;
+    border: none;
+    font-size: 1.6rem;
+    font-family: "Nunito", sans-serif;
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+}
+
+.navigate {
+    width: 100%;
+}
+
+.nextStep {
+    width: 50px;
+    height: 50px;
+    margin: auto;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+        background-color: var(--primary-hover-color);
+    }
+}
+
 .getBtn {
-    width: 75%;
     font-family: 'Nunito', sans-serif;
     font-size: 1.6rem;
     outline: none;
@@ -36,7 +68,7 @@
     background-color: var(--primary-color);
     box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.3);
     text-decoration: none;
-
+    
     &:hover {
         background-color: var(--primary-hover-color);
     }

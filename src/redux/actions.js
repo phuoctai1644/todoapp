@@ -6,7 +6,8 @@ import {
     DELETE_GROUP, 
     SET_CUR_GROUP, 
     TOGGLE_TODO, 
-    UPDATE_TODO 
+    UPDATE_TODO, 
+    SET_USER_NAME
 } from "./type"
 
 export const addTodo = (payload) => {
@@ -61,6 +62,13 @@ export const addGroup = (payload) => {
 export const deleteGroup = (payload) => {
     return {
         type: DELETE_GROUP,
+        payload
+    }
+}
+
+export const setUserName = (payload) => {
+    return {
+        type: SET_USER_NAME,
         payload
     }
 }

@@ -5,6 +5,7 @@ import {
     DELETE_GROUP, 
     DELETE_TODO, 
     SET_CUR_GROUP, 
+    SET_USER_NAME, 
     TOGGLE_TODO, 
     UPDATE_TODO 
 } from "./type"
@@ -13,6 +14,7 @@ const initState = {
     todos: JSON.parse(localStorage.getItem('Today')) ?? [],
     group: JSON.parse(localStorage.getItem('group')) ?? ['Today', 'Important', 'Planed'],
     currentGroup: 'Today',
+    userName: localStorage.getItem('username') ?? ''
 }
 
 const reducer = (state = initState, action) => {
@@ -102,12 +104,20 @@ const reducer = (state = initState, action) => {
         case DELETE_GROUP:
             newGroup = state.group.filter(item => item !== action.payload)
             localStorage.setItem('group', JSON.stringify(newGroup))
+            localStorage.removeItem(action.payload)
 
             return {
                 ...state,
                 group: newGroup
             }
         
+        case SET_USER_NAME:
+            localStorage.setItem('username', action.payload)
+            return {
+                ...state,
+                userName: action.payload
+            }
+
         default: 
             return state
     }

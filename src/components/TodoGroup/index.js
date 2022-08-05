@@ -26,12 +26,12 @@ function TodoGroup() {
 
     return (
         <>
-            {TODO_GROUP.map((groupItem, index) => (
+            {TODO_GROUP.map((groupName, index) => (
                 <div key={index} className={styles.groupItemLink}>
                     <GroupItem 
                         key={index}
                         icon={icon}
-                        groupName={groupItem}
+                        groupName={groupName}
                     />
                 </div>
             ))}

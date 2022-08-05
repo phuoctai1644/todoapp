@@ -7,3 +7,5 @@ export const DELETE_TODO = 'delete_todo'
 
 export const ADD_GROUP = 'add_group'
 export const DELETE_GROUP = 'delete_group'
+
+export const SET_USER_NAME = 'set_user_name'
