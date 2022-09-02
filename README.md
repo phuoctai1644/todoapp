@@ -7,3 +7,8 @@
     - Delete todo
 
 2. Fix all UI of Todo App
+
+## Todo App - Version 2.0
+> New features: 
+1. Users can create a new group for certain tasks in addition to the default 3 groups (Today, Planned, Important)
+2. Hello with name entered when first time
